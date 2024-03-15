@@ -1,10 +1,11 @@
 import React from "react";
+import CartWidget from "./cartwidget";
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
 
 const NavBar = () => {
     return (
         <Navbar bg="body-tertiary" expand="lg" id="navigBar" data-bs-theme="dark">
-            <Navbar.Brand>Game Partner</Navbar.Brand>
+            <Navbar.Brand>GAME PARTNER</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
@@ -18,6 +19,7 @@ const NavBar = () => {
                     <FormControl type="search" placeholder="Search" className="me-2" aria-label="Search" />
                     <Button variant="outline-success">🔎</Button>
                 </Form>
+                <CartWidget />
             </Navbar.Collapse>
         </Navbar>
     );
