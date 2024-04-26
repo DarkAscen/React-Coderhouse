@@ -1,6 +1,6 @@
 import React from "react";
-import CartWidget from "./cartwidget";
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from "react-bootstrap";
+import CartWidget from "./CartWidget";
+import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
@@ -19,7 +19,7 @@ const NavBar = () => {
                     <FormControl id="barraDeBusqueda" type="search" placeholder="Buscar" className="me-2" aria-label="Search" />
                     <Button variant="outline-success">🔎</Button>
                 </Form>
-                <CartWidget />
+                <Nav.Link to="/cart" as={NavLink}><CartWidget /></Nav.Link>
             </Navbar.Collapse>
         </Navbar>
     );

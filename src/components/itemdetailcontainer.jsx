@@ -1,33 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import ItemDetail from './itemdetail';
+import React, { useEffect, useState } from 'react';
+import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
-import data from "../data/productos.json"
+import { db } from '../firebase/data';
+import { doc, getDoc } from 'firebase/firestore';
 
 const ItemDetailContainer = ()=> {
 
     const [item, setItem] = useState(null);
     const id = useParams().id;
 
-    const pedirItemPorId = (id) => {
-        return new Promise((resolve, reject) => {
-            const item = data.find((el) => el.id === id);
-
-            if (item) {
-                resolve(item);
-            } else {
-                reject ({
-                    error: "No se encontro el producto"
-                })
-            }
-        })
-    }
-
     useEffect (() => {
-        pedirItemPorId(Number(id))
-            .then((res) => {
-                setItem(res);
+        const docRef = doc(db, "productos", id);
+        getDoc(docRef)
+            .then((resp) => {
+                setItem({...resp.data(), id: resp.id});
             })
-    }, [id])
+    }, [id]);
 
     return (
         <div>

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const Footer = () => {
     return(
-        <footer>
+        <footer className="footerApp">
             <h2>CONTACTO</h2>
             <p>Telefono: +54 11 1111 1111</p>
             <p>Mail: mail@gmail.com</p>

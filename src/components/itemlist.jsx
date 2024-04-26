@@ -1,5 +1,5 @@
-import React from 'react'
-import Item from './item.jsx'
+import React from 'react';
+import Item from './Item.jsx';
 
 const ItemList = ({productos, titulo})=> {
 
@@ -9,13 +9,14 @@ const ItemList = ({productos, titulo})=> {
     return (
         <div>
             <h1>{toCapital(titulo)}</h1>
-                {
+            <div className="cajitaItems">{
                     productos.map((producto) => {
                         return (
                             <Item key={producto.id} producto={producto}/>
                         )
                     })
                 }
+            </div>
         </div>
     )
 };
